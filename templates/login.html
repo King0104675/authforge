@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1 style="text-align:center;">🔐 Login to AuthForge</h1>
+    <hr>
+
+    {% if logged_in %}
+        <p style="text-align:center; color:green;">You are already logged in as <strong>{{ username }}</strong>.</p>
+        <p style="text-align:center;"><a href="/profile">Go to Profile</a> | <a href="/logout">Logout</a></p>
+    {% else %}
+        {% if error %}
+            <p style="color:red; text-align:center;">{{ error }}</p>
+        {% endif %}
+
+        <form action="/submit" method="POST" style="width: 300px; margin: 0 auto;">
+            <label>Username:</label><br>
+            <input type="text" name="username" required><br><br>
+
+            <label>Password:</label><br>
+            <input type="password" name="password" required><br><br>
+
+            <input type="submit" value="Login">
+        </form>
+
+        <p style="text-align:center; margin-top: 10px;">New here? <a href="/register">Register now</a></p>
+    {% endif %}
+{% endblock %}

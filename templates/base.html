@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png')}}">
+    <title>AuthForge</title>
+</head>
+<body style="font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f2f2f2;">
+
+    <!-- Header -->
+    <div style="background-color: #1a1a1a; color: white; padding: 25px 0; text-align: center;">
+        <img src="{{ url_for('static', filename='logo.png') }}" width="100" align="left">
+        <h1 style="margin: 0; font-size: 36px;">🌩️ AuthForge</h1>
+        <p style="margin: 5px 0 0; font-size: 16px;">Simple. Secure. Flask-based Authentication.</p>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div style="background-color: #333; color: white; text-align: center; padding: 12px 0;">
+        <span style="margin: 0 15px;"><a href="/" style="color: white; text-decoration: none;">🏠 Home</a></span>
+        <span style="margin: 0 15px;"><a href="/login" style="color: white; text-decoration: none;">🔐 Login</a></span>
+        <span style="margin: 0 15px;"><a href="/register" style="color: white; text-decoration: none;">📝 Register</a></span>
+        <span style="margin: 0 15px;"><a href="/profile" style="color: white; text-decoration: none;">👤 Profile</a></span>
+        <span style="margin: 0 15px;"><a href="/about" style="color: white; text-decoration: none;">💡 About</a></span>
+        <span style="margin: 0 15px;"><a href="/contact" style="color: white; text-decoration: none;">📬 Contact</a></span>
+        <span style="margin: 0 15px;"><a href="/logout" style="color: white; text-decoration: none;">🚪 Logout</a></span>
+    </div>
+
+    <!-- Main Content -->
+    <div style="padding: 40px; background-color: white; min-height: 80vh;">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer -->
+    <div style="background-color: #1a1a1a; color: #ccc; text-align: center; padding: 20px;">
+        <p style="margin: 5px 0;">© 2025 <strong>AuthForge</strong></p>
+        <p style="margin: 0; font-style: italic;">“Secure access starts with simple foundations.”</p>
+    </div>
+
+</body>
+</html>
+

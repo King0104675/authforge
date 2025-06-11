@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Email Verification - AuthForge{% endblock %}
+
+{% block content %}
+  <div style="max-width: 600px; margin: auto; text-align: center; padding: 20px;">
+    <h2>🔐 Verify Your Email</h2>
+
+    <p style="font-size: 1.1em;">Hello <strong>{{ name }}</strong>,</p>
+    <p>
+      You're just one step away from completing your registration with <strong>AuthForge</strong>!  
+    </p>
+    <p>
+      We've sent a <strong>6-digit OTP</strong> to your email address.  
+      Please enter it below to confirm your identity and activate your account.
+    </p>
+
+    <hr style="margin: 30px 0;">
+
+    <form method="POST" action="/confirm">
+      <label for="OTP" style="font-size: 1.1em;">Enter OTP</label><br><br>
+      <input 
+        type="text" 
+        id="OTP" 
+        name="OTP" 
+        maxlength="6" 
+        placeholder="6-digit OTP" 
+        required 
+        style="padding: 10px; font-size: 1em; width: 60%; text-align: center;"
+      ><br><br>
+      <button 
+        type="submit" 
+        style="padding: 10px 25px; font-size: 1em; cursor: pointer;"
+      >
+        ✅ Verify & Continue
+      </button>
+    </form>
+
+    <hr style="margin: 30px 0;">
+
+    <div style="font-size: 0.95em; text-align: left; padding: 0 20px;">
+      <p><strong>🔎 Didn’t receive the OTP?</strong></p>
+      <ul>
+        <li>Check your spam or junk folder</li>
+        <li>Ensure your email was entered correctly</li>
+        <li>Wait a few minutes or try registering again</li>
+      </ul>
+
+      <p style="color: gray; font-size: 0.85em;">
+        ⚠️ For security reasons, the OTP is valid for one-time use only.
+      </p>
+    </div>
+  </div>
+{% endblock %}

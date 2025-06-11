@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="text-align:center;">🔐 Login Attempt</h2>
+    <hr style="width:60%;">
+
+    {% if login_success %}
+        <p style="color: green; font-weight: bold; text-align: center;">Login Successful!</p>
+        <p style="text-align:center;">Welcome back, <strong>{{ name }}</strong>.</p>
+        <p style="text-align:center;">You are now logged in and can access your profile.</p>
+    {% else %}
+        <p style="color: red; font-weight: bold; text-align: center;">Login Failed</p>
+        <p style="text-align:center;">{{ error }}</p>
+        <p style="text-align:center;">Please go back and try again with correct credentials.</p>
+    {% endif %}
+{% endblock %}

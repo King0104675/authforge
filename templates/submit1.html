@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="text-align:center;">📝 Registration Status</h2>
+    <hr style="width:60%;">
+
+    {% if user_exist %}
+        <p style="color: red; font-weight: bold; text-align: center;">{{ error }}</p>
+        <p style="text-align:center;">The username <strong>{{ username }}</strong> is already in use.</p>
+        <p style="text-align:center;">Please try registering again with a different username.</p>
+    {% else %}
+        <p style="text-align:center;">Hi <strong>{{ name }}</strong>, we’ve sent an OTP to your email: <strong>{{ email }}</strong>.</p>
+        <p style="text-align:center;">Please enter the OTP below to confirm your registration.</p>
+
+        <form method="POST" action="/confirm" style="text-align:center; margin-top:20px;">
+            <label for="otp">Enter OTP: </label>
+            <input type="text" id="otp" name="OTP" required>
+            <input type="hidden" name="name" value="{{ name }}">
+            <button type="submit">Verify OTP</button>
+        </form>
+    {% endif %}
+{% endblock %}

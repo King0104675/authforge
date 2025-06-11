@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2 style="text-align:center;">🔐 OTP Confirmation</h2>
+    <hr style="width:60%;">
+
+    {% if correct_pass %}
+        <p style="color: green; font-weight: bold; text-align: center;">OTP Verified Successfully!</p>
+        <p style="text-align:center;">Welcome aboard, <strong>{{ name }}</strong>! Your account has been activated.</p>
+        <p style="text-align:center;">You can now log in and explore your profile.</p>
+    {% else %}
+        <p style="color: red; font-weight: bold; text-align: center;">Invalid OTP!</p>
+        <p style="text-align:center;">Please double-check the code sent to your email and try again.</p>
+    {% endif %}
+{% endblock %}
