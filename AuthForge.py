@@ -46,9 +46,8 @@ def submit1():
     password = request.form.get('password')
 
     if username in website_user:
-        return render_template('verify_otp.html', name=name)
-
-    # Generate OTP and store info in session
+        return render_template('submit1.html', user_exist=True, error="Username is already taken.", name=name, email=email, username=username)
+        
     otp = str(random.randint(111111, 999999))
     session['otp'] = otp
     session['reg_data'] = {
@@ -58,8 +57,7 @@ def submit1():
         'mobile': mobile,
         'password': password
     }
-
-    # Send Email
+    
     msg = EmailMessage()
     msg['Subject'] = 'AuthForge Registration'
     msg['From'] = 'cem.maharaja@gmail.com'
@@ -68,10 +66,10 @@ def submit1():
 
     with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
         smtp.starttls()
-        smtp.login('cem.maharaja@gmail.com', 'fipq iebp vlfv kanp')  # Use App Password!
+        smtp.login('cem.maharaja@gmail.com', 'fipq iebp vlfv kanp') 
         smtp.send_message(msg)
 
-        return render_template('verify_otp.html', name=name)
+    return render_template('submit1.html', user_exist=False, name=name, email=email, username=username)
 
 @app.route('/confirm', methods=["POST"])
 def confirm():
