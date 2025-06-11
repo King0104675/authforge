@@ -1,21 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h2 style="text-align:center;">📝 Registration Status</h2>
-    <hr style="width:60%;">
+<div style="max-width: 600px; margin: 0 auto; background: #ffffff; padding: 30px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
 
     {% if user_exist %}
-        <p style="color: red; font-weight: bold; text-align: center;">{{ error }}</p>
-        <p style="text-align:center;">The username <strong>{{ username }}</strong> is already in use.</p>
-        <p style="text-align:center;">Please try registering again with a different username.</p>
+        <h2 style="color: crimson;">⚠️ Username Already Taken</h2>
+        <p>The username <strong>{{ username }}</strong> is already registered. Please choose a different username.</p>
+        <a href="/register" style="display: inline-block; margin-top: 15px; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Try Again</a>
     {% else %}
-        <p style="text-align:center;">Hi <strong>{{ name }}</strong>, we’ve sent an OTP to your email: <strong>{{ email }}</strong>.</p>
-        <p style="text-align:center;">Please enter the OTP below to confirm your registration.</p>
+        <h2 style="color: #007BFF;">📨 OTP Sent</h2>
+        <p>Hello <strong>{{ name }}</strong>, we've sent a One-Time Password (OTP) to your email: <strong>{{ email }}</strong>.</p>
+        <p>Please enter it below to verify your account.</p>
 
-        <form method="POST" action="/confirm" style="text-align:center; margin-top:20px;">
-            <label for="otp">Enter OTP: </label>
-            <input type="text" id="otp" name="OTP" required>
+        <form action="/confirm" method="POST" style="margin-top: 20px;">
+            <label for="OTP">🔐 Enter OTP:</label><br>
+            <input type="text" name="OTP" placeholder="6-digit OTP" required style="width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #ccc;">
+            
             <input type="hidden" name="name" value="{{ name }}">
-            <button type="submit">Verify OTP</button>
+            
+            <button type="submit" style="background-color: #28a745; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">Verify OTP</button>
         </form>
     {% endif %}
+
+</div>
 {% endblock %}
