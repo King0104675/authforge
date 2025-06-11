@@ -5,7 +5,10 @@
     {% if user_exist %}
         <h2 style="color: crimson;">⚠️ Username Already Taken</h2>
         <p>The username <strong>{{ username }}</strong> is already registered. Please choose a different username.</p>
-        <a href="/register" style="display: inline-block; margin-top: 15px; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Try Again</a>
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/register" style="display: inline-block; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Register</a>
+    </div>
+
     {% else %}
         <h2 style="color: #007BFF;">📨 OTP Sent</h2>
         <p>Hello <strong>{{ name }}</strong>, we've sent a One-Time Password (OTP) to your email: <strong>{{ email }}</strong>.</p>
