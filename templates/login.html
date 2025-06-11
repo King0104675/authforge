@@ -5,8 +5,11 @@
 
     {% if logged_in %}
         <p style="text-align:center; color:green;">You are already logged in as <strong>{{ username }}</strong>.</p>
-        <p <a href="/profile" style="align: center display: inline-block; margin-top: 15px; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Profile</a>
-          | <a href="/logout" style="align: center display: inline-block; margin-top: 15px; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Logout</a></p>
+    <p <div style="text-align: center; margin-top: 20px;">
+        <a href="/profile" style="display: inline-block; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Profile</a>
+        <a href="/logout" style="display: inline-block; padding: 8px 16px; background-color: #1a1a1a; color: white; border-radius: 5px; text-decoration: none;">Logout</a>
+    </div>
+</p>
     {% else %}
         {% if error %}
             <p style="color:red; text-align:center;">{{ error }}</p>
